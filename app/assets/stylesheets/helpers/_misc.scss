@@ -1,0 +1,44 @@
+
+.text-align-left{
+     text-align: left;
+ }
+ .text-align-center{
+     text-align: center;
+ }
+ .text-align-right{
+     text-align: right;
+ }
+ .spacer-primary{
+     height:60px;
+ }
+ .spacer-secondary{
+     height:40px;
+ }
+ .spacer-teritary{
+     height:30px;
+ }
+
+ /** Mobile View When window is smaller 767px  **/
+ @media (max-width: 767px){
+     .inline-desktop{
+         display:block;
+     }
+     .spacer-primary{
+         height:40px;
+     }
+     .spacer-secondary{
+         height:30px;
+     }
+     .spacer-teritary{
+         height:30px;
+     }
+     .text-mobile-align-left{
+         text-align: left;
+     }
+     .text-mobile-align-center{
+         text-align: center;
+     }
+     .text-mobile-align-right{
+         text-align: right;
+     }
+ }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NDAcheckin</title>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Lato:100,200,300,400,700" %>
+  <%= stylesheet_link_tag "application" %>
+
+  <%= javascript_include_tag "http://cdn.jsdelivr.net/velocity/1.2.2/velocity.min.js" %>
+  <%= javascript_include_tag "http://cdn.jsdelivr.net/velocity/1.2.2/velocity.ui.min.js" %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+
+
+<%= yield %>
+<div class="spacer-primary">
+</body>
+</html>

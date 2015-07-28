@@ -1,0 +1,17 @@
+input{
+	outline: none;    
+}
+// Form for homepage
+.form-home{
+	input{
+		width: 100%;
+		font-size: 20px;
+		text-align: center;
+		padding:15px;
+		&.continue{
+			background: none;
+    	border: none;
+    	text-decoration: underline;
+		}
+	}
+}

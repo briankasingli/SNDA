@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Document:</strong>
+  <%= @signed_document.document %>
+</p>
+
+<p>
+  <strong>Signer name:</strong>
+  <%= @signed_document.signer_name %>
+</p>
+
+<p>
+  <strong>Signer signature:</strong>
+  <%= @signed_document.signer_signature %>
+</p>
+
+<%= link_to 'Edit', edit_signed_document_path(@signed_document) %> |
+<%= link_to 'Back', signed_documents_path %>
