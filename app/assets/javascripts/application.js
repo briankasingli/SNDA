@@ -18,22 +18,47 @@
 
 $(function() {
 
+init();
 
-	 if (window.location.pathname.match(/signed_documents/)) {
-      $('.sigPad').signaturePad({displayOnly:true}).regenerate(sig);
-    }
-	$('#signed_documents').dataTable( {
-	    responsive: true,
-	    "lengthMenu": [ [25, 50, 100, 250, -1], [25, 50, 100, 250, "All"] ],
-
-	    "oLanguage": {
-	    "sLengthMenu": '_MENU_',
-	    "sSearch": "_INPUT_"
-	    }
-	});
-	$('.dataTables_filter input').attr("placeholder", "Search");
-
+function init(){
+	//start w/ step one
 	stepOne();
+
+  $('form.form-home .full-name').on("keyup", function(){
+  	if (($(this).val().length) > 0){
+			$(this).closest('.form-home').find('.continue-btn').html('<input class="continue" type="submit" value="Continue">');
+		}else{
+			$(this).closest('form.form-home').find('.continue-btn').html('');
+		}
+	});
+
+	$('.continue-btn').on('click', function(e){
+		e.preventDefault();		
+		stepTwo();
+		$("p").each(function() {
+	    var text = $(this).text();
+	    var full_name = $('input[name="full-name"]').val().toLowerCase().capitalize();
+	    text = text.replace(/\[INSERTNAMEHERE\]/g, full_name);
+	    $(this).text(text);
+		});
+	});
+
+	$('.sigPad').signaturePad({drawOnly:true});
+
+	$( "form.sigPad" ).submit(function(e) {
+		e.preventDefault();
+		var nda_id = $('input[name="document_id"]').val();
+    var nda = $('.nda').html();
+    var signature = $('input[name="output"]').val();
+    var full_name = $('input[name="full-name"]').val();
+		if ($('input[name="output"]').val().length > 0){
+			postSignatureNDA(nda_id, nda, signature, full_name);
+		}else{
+			console.log('signature unsigned');
+		}
+	});
+}
+
 	function stepOne(){
 		$('.step2').hide();
 		$('.step3').hide();
@@ -48,44 +73,21 @@ $(function() {
 		$('.step2').hide();
 		$('.step3').show();
 		$('.spacers').show();
-		$('#signaturePop').modal('hide')
+		$('#signaturePop').modal('hide');
 	}
-	String.prototype.capitalize = function(){
-		return this.replace( /(^|\s)([a-z])/g , function(m,p1,p2){ return p1+p2.toUpperCase();
-		} );
-	};
 
-  $('form.form-home .full-name').on("keyup", function(){
-  	if (($(this).val().length) > 0){
-			$(this).closest('.form-home').find('.continue-btn').html('<input class="continue" type="submit" value="Continue">');
-		}else{
-			$(this).closest('form.form-home').find('.continue-btn').html('');
-		}
-	});
-	$('.continue-btn').on('click', function(e){
-		e.preventDefault();		
-		stepTwo();
-		$("p").each(function() {
-	    var text = $(this).text();
-	    var full_name = $('input[name="full-name"]').val().toLowerCase().capitalize();
-	    text = text.replace(/\[INSERTNAMEHERE\]/g, full_name);
-	    $(this).text(text);
-		});
-	});
-
-	$('.sigPad').signaturePad({drawOnly:true});
-	$( "form.sigPad" ).submit(function( event ) {
-		event.preventDefault();
-		if ($('input[name="output"]').val().length > 0){
-		 $.ajax({
+	function postSignatureNDA(nda_id, nda, signature, full_name) {
+	  $.ajax({
 	    url: "/signed_documents",
 	    method: "POST",
-	    data: {signed_document:{
-	      nda_id: $('input[name="document_id"]').val(),
-	      nda: $('.nda').html(),
-	      signature: $('input[name="output"]').val(),
-	      full_name: $('input[name="full-name"]').val()
-	    }},
+	    data: {
+	      signed_document: {
+	        nda_id: nda_id,
+	        nda: nda,
+	        signature: signature,
+	        full_name: full_name
+	      }
+	    },
 	    beforeSend: function() {
 	      // Handle the beforeSend event
 	    },
@@ -96,11 +98,5 @@ $(function() {
 	      alert("Error");
 	    }
 	  });
-
-		}else{
-			console.log('signature unsigned');
-		}
-	});
-
-	$('.modal-footer button')
+	}
 });
