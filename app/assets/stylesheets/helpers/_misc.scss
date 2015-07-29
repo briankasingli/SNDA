@@ -91,3 +91,35 @@
     color:red;
     font-weight: 600;
 }
+
+//admin list
+.dataTables_wrapper .dataTables_paginate .paginate_button.current{
+    background: none;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+}
+.dataTables_filter input{
+    font-weight: 300;
+    padding-left: 15px;
+}
+#signed_documents_filter{
+    padding-bottom:10px;
+}
+table.dataTable {
+    thead .sorting_asc{
+        background-image:url(../images/sort_asc.png) !important;
+    }
+    thead .sorting_desc{
+        background-image:url(../images/sort_desc.png) !important;
+    }
+    tbody td{
+        padding: 10px 10px;
+        border-bottom: 1px solid#ccc;
+    }
+    tr{
+        &:hover{
+            background: #e7e7e7;
+        }
+    }
+}

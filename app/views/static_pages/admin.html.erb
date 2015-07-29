@@ -1,0 +1,33 @@
+<div class="container home-container">
+  <div class="row">
+    <div class="col-sm-offset-2 col-sm-8">
+    		<div class="spacers">
+				<div class="spacer-primary"></div>
+	    	<div class="spacer-primary"></div>
+	    	<div class="spacer-primary"></div>
+	    	<h1 class="text-align-center">Admin Panel</h1> 
+        <div id="admin-panel">
+         <table id="signed_documents">
+         <thead>
+          <tr>
+            <th>sid</th>
+            <th>Full Name</th>
+            <th>Signed Date</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @signed_ndas.each do |signed_nda| %>
+            <tr>
+              <td class="nda-id" align="center"><%= signed_nda.id %></td>
+              <td><a target="_blank" href="/signed_documents/<%= signed_nda.id %>"><%= signed_nda.full_name %></a></td>
+              <td><%= signed_nda.created_at %></td>
+              <td class="nda-action"><a target="_blank" href="/signed_documents/<%= signed_nda.id %>">View</a> | Delete</td>
+            </tr>
+          <% end %>
+          </tbody>
+         </table>
+        </div>
+    </div>
+  </div>
+</div>

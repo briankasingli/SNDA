@@ -17,6 +17,22 @@
 //= require_tree .
 
 $(function() {
+
+
+	 if (window.location.pathname.match(/signed_documents/)) {
+      $('.sigPad').signaturePad({displayOnly:true}).regenerate(sig);
+    }
+	$('#signed_documents').dataTable( {
+	    responsive: true,
+	    "lengthMenu": [ [25, 50, 100, 250, -1], [25, 50, 100, 250, "All"] ],
+
+	    "oLanguage": {
+	    "sLengthMenu": '_MENU_',
+	    "sSearch": "_INPUT_"
+	    }
+	});
+	$('.dataTables_filter input').attr("placeholder", "Search");
+
 	stepOne();
 	function stepOne(){
 		$('.step2').hide();

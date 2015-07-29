@@ -55,3 +55,12 @@
   position: relative;
   top: -3px;
 }
+
+a, a:active{
+  color: #333 !important;
+  font-weight: 350 !important;
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
