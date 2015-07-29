@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ndas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Nda</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ndas.each do |nda| %>
+      <tr>
+        <td><%= nda.user %></td>
+        <td><%= nda.nda %></td>
+        <td><%= link_to 'Show', nda %></td>
+        <td><%= link_to 'Edit', edit_nda_path(nda) %></td>
+        <td><%= link_to 'Destroy', nda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nda', new_nda_path %>

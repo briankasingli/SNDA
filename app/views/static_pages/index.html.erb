@@ -1,46 +1,63 @@
 <div class="container home-container">
   <div class="row">
     <div class="col-sm-offset-2 col-sm-8">
-    	<!-- <div class="spacer-primary"></div>
-    	<div class="spacer-primary"></div>
-    	<div class="spacer-primary"></div>
-    	<h1 class="text-align-center">What’s Your Name?</h1>
-    	<form class="form-home">
-    		<input class="full-name" type="text" placeholder="Full Name" />
-    		<div class="submit"></div>
-    	</form>
-    </div> -->
-     <h1>Non-Disclosure Agreement</h1>
-    <div class="document">
-    <p>CompanyZ, and Brian, agree:</p>
+    	<div class="enter-name">
+    		<div class="spacers">
+				<div class="spacer-primary"></div>
+	    	<div class="spacer-primary"></div>
+	    	<div class="spacer-primary"></div>
+	    	</div>
+	    	
+	    	<div class="step1">
+		    	<h1 class="text-align-center">What’s Your Name?</h1>
+		    	<form class="form-home">
+		    		<input name="full-name" class="full-name" type="text" placeholder="Full Name" />
+		    		<div class="continue-btn"></div>
+		    	</form>	
+	    	</div>
+    	</div>
 
-<p>CompanyZ may from time to time disclose to Brian certain confidential information or trade secrets generally regarding .</p>
+    	<div class="step2">
+      <h1>Non-Disclosure Agreement</h1>
+      <div class="document">
+      	<div class="nda">
+        	<%= @nda.nda.html_safe %>
+        </div>
+        <div class="text-align-center"><a data-toggle="modal" data-target="#signaturePop" class="button-green" href="#"><i class="fa fa-pencil"></i> &nbsp;&nbsp;Sign this Document</a></div>
 
-<p>Brian agrees that it shall not disclose the information so conveyed, unless in conformity with this agreement. Brian shall limit disclosure to the officers and employees of Brian with a reasonable &quot;need to know&quot; the information, and shall protect the same from disclosure with reasonable diligence.</p>
-
-<p>As to all information which CompanyZ claims is confidential, CompanyZ shall reduce the same to writing prior to disclosure and shall conspicuously mark the same as &quot;confidential,&quot; &quot;not to be disclosed&quot; or with other clear indication of its status. If the information which CompanyZ is disclosing is not in written form, for example, a machine or device, CompanyZ shall be required prior to or at the same time that the disclosure is made to provide written notice of the secrecy claimed by CompanyZ. Brian agrees upon reasonable notice to return the confidential tangible material provided by it by CompanyZ upon reasonable request.</p>
-
-<p>The obligation of non-disclosure shall terminate when if any of the following occurs:</p>
-
-<p>(a) The confidential information becomes known to the public without the fault of Brian, or;</p>
-
-<p>(b) The information is disclosed publicly by CompanyZ, or ;</p>
-
-<p>(c) a period of months passes from the disclosure, or;</p>
-
-<p>(d) the information loses its status as confidential through no fault of Brian.</p>
-
-<p>In any event, the obligation of non-disclosure shall not apply to information which was known to Brian prior to the execution of this agreement.</p>
-
-<p>Jul 27, 2015</p>
-
-<p>CompanyZ</p>
-
-<p>Brian</p>
-<div class="text-align-center">
-	<a class="cupid-green">Cupid Green</a>
-</div>
+        <!-- Modal -->
+        <div class="modal fade" id="signaturePop" tabindex="-1" role="dialog" aria-labelledby="signaturePopLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Sign this Document</h4>
+              </div>
+              <div class="modal-body">
+                <p class="sign-content">By clicking "Sign Document", you are creating a legally binding contract between the other party and yourself, or the entity you are authorized to represent.</p>
+                <form class="sigPad">
+                  <div class="sig sigWrapper">
+                    <div class="typed"></div>
+                    <canvas class="pad signature" width="555"></canvas>
+                    <input type="hidden" name="document_id" value="<%= @nda.id %>">
+                    <input type="hidden" name="output" class="output">
+                  </div>
+                  <ul class="sigNav">
+                    <li class="clearButton"><a href="#clear">Clear</a></li>
+                  </ul>
+	              </div>
+	              <div class="modal-footer">
+	                <button type="submit" class="button-green sign sign-document-btn">Sign Document</button>
+	                <button type="button" class="btn btn-default sign" data-dismiss="modal">Close</button>
+	                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+       <div class="step3">
+        	<h1 class="text-align-center">Thank you for signing the document</h1>
+        </div>
     </div>
   </div>
-</div>
-

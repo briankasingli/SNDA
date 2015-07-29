@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :signed_documents
-  resources :documents
+  resources :ndas
   resources :users
+
+  resources :signed_documents, only: [:show, :create]
 
   root 'static_pages#index'
   # The priority is based upon order of creation: first created -> highest priority.

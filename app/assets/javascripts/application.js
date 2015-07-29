@@ -17,16 +17,79 @@
 //= require_tree .
 
 $(function() {
-  $('form .full-name').on("keyup", function(){
+	stepOne();
+	function stepOne(){
+		$('.step2').hide();
+		$('.step3').hide();
+	}
+	function stepTwo(){
+		$('.step1').hide();
+		$('.step2').show();
+		$('.spacers').hide();
+	}
+	function stepThree(){
+		$('.step1').hide();
+		$('.step2').hide();
+		$('.step3').show();
+		$('.spacers').show();
+		$('#signaturePop').modal('hide')
+	}
+	String.prototype.capitalize = function(){
+		return this.replace( /(^|\s)([a-z])/g , function(m,p1,p2){ return p1+p2.toUpperCase();
+		} );
+	};
+
+  $('form.form-home .full-name').on("keyup", function(){
   	if (($(this).val().length) > 0){
-			$(this).closest('.form-home').find('.submit').html('<input class="continue" type="submit" value="Continue">');
+			$(this).closest('.form-home').find('.continue-btn').html('<input class="continue" type="submit" value="Continue">');
 		}else{
-			$(this).closest('.form-home').find('.submit').html('');
+			$(this).closest('form.form-home').find('.continue-btn').html('');
 		}
 	});
-	$('.submit').on('click', function(e){
+	$('.continue-btn').on('click', function(e){
 		e.preventDefault();		
-		$('.col-sm-8').empty();
-		$('.col-sm-8').append('shit')
+		stepTwo();
+		$("p").each(function() {
+	    var text = $(this).text();
+	    var full_name = $('input[name="full-name"]').val().toLowerCase().capitalize();
+	    text = text.replace("[INSERTNAMEHERE]", full_name);
+	    $(this).text(text);
+		});
 	});
+
+	$('.sigPad').signaturePad({drawOnly:true});
+	$( "form.sigPad" ).submit(function( event ) {
+		event.preventDefault();
+		if ($('input[name="output"]').val().length > 0){
+			console.log($('input[name="document_id"]').val());
+			console.log($('input[name="output"]').val());
+			console.log($('input[name="full-name"]').val());
+			console.log($('.nda').html());
+
+		 $.ajax({
+	    url: "/signed_documents",
+	    method: "POST",
+	    data: {signed_document:{
+	      nda_id: $('input[name="document_id"]').val(),
+	      nda: $('.nda').html(),
+	      signature: $('input[name="output"]').val(),
+	      full_name: $('input[name="full-name"]').val()
+	    }},
+	    beforeSend: function() {
+	      // Handle the beforeSend event
+	    },
+	    success: function(data) {
+	      stepThree();
+	    },
+	    error: function() {
+	      alert("Your trying to inject a script!");
+	    }
+	  });
+
+		}else{
+			console.log('signature unsigned');
+		}
+	});
+
+	$('.modal-footer button')
 });

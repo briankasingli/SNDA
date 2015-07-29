@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @nda.user %>
+</p>
+
+<p>
+  <strong>Nda:</strong>
+  <%= @nda.nda %>
+</p>
+
+<%= link_to 'Edit', edit_nda_path(@nda) %> |
+<%= link_to 'Back', ndas_path %>

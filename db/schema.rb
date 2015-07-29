@@ -11,27 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727215737) do
+ActiveRecord::Schema.define(version: 20150729002449) do
 
-  create_table "documents", force: :cascade do |t|
-    t.text     "document"
+  create_table "ndas", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "nda"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "ndas", ["user_id"], name: "index_ndas_on_user_id"
+
   create_table "signed_documents", force: :cascade do |t|
-    t.integer  "document_id"
-    t.string   "signer_name"
-    t.string   "signer_signature"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "nda_id"
+    t.string   "nda"
+    t.string   "signature"
+    t.string   "full_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "signed_documents", ["document_id"], name: "index_signed_documents_on_document_id"
+  add_index "signed_documents", ["nda_id"], name: "index_signed_documents_on_nda_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "full_name"
     t.string   "username"
     t.string   "password"
     t.string   "email"
