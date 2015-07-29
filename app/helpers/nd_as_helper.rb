@@ -1,0 +1,2 @@
+module NdAsHelper
+end
