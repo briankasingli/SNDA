@@ -52,7 +52,7 @@ $(function() {
 		$("p").each(function() {
 	    var text = $(this).text();
 	    var full_name = $('input[name="full-name"]').val().toLowerCase().capitalize();
-	    text = text.replace("[INSERTNAMEHERE]", full_name);
+	    text = text.replace(/\[INSERTNAMEHERE\]/g, full_name);
 	    $(this).text(text);
 		});
 	});
@@ -61,11 +61,6 @@ $(function() {
 	$( "form.sigPad" ).submit(function( event ) {
 		event.preventDefault();
 		if ($('input[name="output"]').val().length > 0){
-			console.log($('input[name="document_id"]').val());
-			console.log($('input[name="output"]').val());
-			console.log($('input[name="full-name"]').val());
-			console.log($('.nda').html());
-
 		 $.ajax({
 	    url: "/signed_documents",
 	    method: "POST",
@@ -82,7 +77,7 @@ $(function() {
 	      stepThree();
 	    },
 	    error: function() {
-	      alert("Your trying to inject a script!");
+	      alert("Error");
 	    }
 	  });
 
