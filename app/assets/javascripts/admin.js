@@ -1,4 +1,31 @@
 $(function() {
+	$('.update-nda').on('click', function(e){
+		e.preventDefault();
+		$('#editNdaPop').modal('hide');
+		var nda_id = $('.nda_id').val();
+		var nda = $('#nda_nda').val();
+		$.ajax({
+		  url: "/ndas/" + nda_id,
+		  method: "PATCH",
+		  data: {
+	      ndas: {
+	      	nda_id: nda_id,
+	        nda: nda
+	      }
+	    },
+		  dataType: "json",
+		  beforeSend: function() {
+		    // Handle the beforeSend event
+		  },
+		  success: function(data) {
+		    console.log('success');
+		  },
+		  error: function() {
+		    //there isnt going to be any errors
+		  }
+		});
+	});
+
 	//delete button
 	$('.delete-btn').on('click', function(){
 		var action = confirm('Are you sure you want to delete this signed document entry?');

@@ -38,7 +38,7 @@ function init(){
 		$("p").each(function() {
 	    var text = $(this).text();
 	    var full_name = $('input[name="full-name"]').val().toLowerCase().capitalize();
-	    text = text.replace(/\[INSERTNAMEHERE\]/g, full_name);
+	    text = text.replace(/\{full_name\}/g, full_name);
 	    $(this).text(text);
 		});
 	});

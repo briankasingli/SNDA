@@ -1,2 +1,0 @@
-class NdAsController < ApplicationController
-end

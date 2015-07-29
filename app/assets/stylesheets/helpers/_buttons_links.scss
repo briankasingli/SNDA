@@ -1,4 +1,4 @@
-.button-green {
+.button-green, a.edit-nda-btn {
   color: #fff !important;
   text-decoration: none !important;
   display: inline-block;
@@ -30,8 +30,8 @@
   &.sign{
     width: auto;
   }
-  }
-  .button-green:hover {
+  
+  &:hover {
     text-decoration: none;
     color: #fff;
     background-color: #76b347;
@@ -44,16 +44,18 @@
     -webkit-box-shadow: inset 0 1px 0 0 #8dbf67;
     -moz-box-shadow: inset 0 1px 0 0 #8dbf67;
     box-shadow: inset 0 1px 0 0 #8dbf67;
-    cursor: pointer; }
-  .button-green:active {
+    cursor: pointer;}
+  &:active {
     border: 1px solid #5b992b;
     border-bottom: 1px solid #538c27;
     -webkit-box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee;
     -moz-box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee;
-    box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee; }
-.btn-default.sign{
-  position: relative;
-  top: -3px;
+    box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee; 
+    }
+  .btn-default.sign{
+    position: relative;
+    top: -3px;
+  }
 }
 
 a, a:active{

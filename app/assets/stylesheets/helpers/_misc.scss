@@ -17,6 +17,9 @@
  .spacer-teritary{
      height:30px;
  }
+ .margin-top-10{
+    margin-top:10px;
+ }
 
  /** Mobile View When window is smaller 767px  **/
  @media (max-width: 767px){
@@ -59,6 +62,10 @@
 //modal
 .modal-content{
     width: 588px;
+}
+.modal-content.editnda{
+    width: 100%;
+    max-width: 700px;
 }
 .sign-content{
     font-size: 0.875rem;
