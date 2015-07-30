@@ -2,7 +2,7 @@ class NdasController < ApplicationController
 
   def update
     respond_to do |format|
-      @nda = Nda.find(1);
+      @nda = Nda.find(params[:ndas][:nda_id]);
       if @nda.update(nda_params)
         format.json { head :no_content }
       end

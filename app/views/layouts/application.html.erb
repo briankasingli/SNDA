@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>NDAcheckin</title>
-  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Lato:100,200,300,400,700" %>
-  <%= stylesheet_link_tag "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" %>
-  <%= stylesheet_link_tag "https://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" %>
-  <%= stylesheet_link_tag "https://cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css" %>
-  <%= stylesheet_link_tag 'application', :media => "all" %>
+  <head>
+    <title>NDAcheckin</title>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Lato:100,200,300,400,700" %>
+    <%= stylesheet_link_tag "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" %>
+    <%= stylesheet_link_tag "https://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" %>
+    <%= stylesheet_link_tag "https://cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css" %>
+    <%= stylesheet_link_tag 'application', :media => "all" %>
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "http://cdn.jsdelivr.net/velocity/1.2.2/velocity.min.js" %>
-  <%= javascript_include_tag "http://cdn.jsdelivr.net/velocity/1.2.2/velocity.ui.min.js" %>
-  <%= javascript_include_tag "signature-pad/jquery.signaturepad.min.js" %>
-  <%= javascript_include_tag "signature-pad/json2.min.js" %>
-  <%= javascript_include_tag "https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js" %>
-  <%= javascript_include_tag "https://cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.js" %>
-  <%= csrf_meta_tags %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "http://cdn.jsdelivr.net/velocity/1.2.2/velocity.min.js" %>
+    <%= javascript_include_tag "http://cdn.jsdelivr.net/velocity/1.2.2/velocity.ui.min.js" %>
+    <%= javascript_include_tag "signature-pad/jquery.signaturepad.min.js" %>
+    <%= javascript_include_tag "signature-pad/json2.min.js" %>
+    <%= javascript_include_tag "https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js" %>
+    <%= javascript_include_tag "https://cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.js" %>
+    <%= csrf_meta_tags %>
 
-</head>
-<body>
-
-
-<%= yield %>
-<div class="spacer-primary">
-</body>
+  </head>
+  <body>
+    <%= yield %>
+    <div class="spacer-primary">
+  </body>
 </html>

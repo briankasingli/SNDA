@@ -1,5 +1,6 @@
 class SignedDocument < ActiveRecord::Base
   belongs_to :document
+  
   before_save :capitalize_full_name
 
   private

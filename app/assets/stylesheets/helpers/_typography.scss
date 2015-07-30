@@ -1,70 +1,77 @@
 html{
-	font-size: 16px !important;
+    font-size: 16px !important;
 }
- body h1,h2,h3,h4,h5,h6,p,ul,ol,li,div,a, span, form, input, label, textarea, td, tr{
-     font-family: 'lato', 'helvetica', 'arial', 'sans-serif';
-     color: #222222;
-     font-weight: 300;
- }
- /****** font *********/
- h1,h2,h3,h4,p{
-     padding-bottom:15px;
- }
- h1{
-     font-size: 4.375rem;
-     line-height:5rem;
- }
 
- h2{
-     font-size: 2.5rem;
-     line-height:3rem;
-     text-transform: uppercase;
-     letter-spacing: .3rem;
- }
- h3{
-     font-size: 1.875rem;
-     line-height: 2.5rem;
-     margin-bottom:10px;
- }
- h4{
-     font-size: 1.688rem;
-     line-height: 2.1rem;
- }
- p{
-     font-size: 1rem;
-     line-height: 1.5rem;
- }
-    
- /** Mobile View When window is smaller 767px  **/
- @media (max-width: 767px){
-     h1{
-         font-size: 3.125rem;
-         line-height:3.625rem;
-     }
-     h2{
-         font-size: 1.875rem;
-         line-height: 2.375rem;
-         text-transform: uppercase;
-         letter-spacing: .3rem;
-     }
-     h3{
-         font-size: 1.563rem;
-         line-height: 2.063rem;
-     }
-     h4{
-         font-size: 1.375rem;
-         line-height: 1.575rem;
-     }
- }
- @media (max-width: 640px){
-        .title{
-            h1{
-                font-size: 1.875rem;
-                line-height: 2.375rem;
-            }
-            h2{
-                font-size: 1.25rem;
-                line-height: 1.75rem;
-            }
+body h1,h2,h3,h4,h5,h6,p,ul,ol,li,div,a, span, form, input, label, textarea, td, tr{
+    font-family: 'lato', 'helvetica', 'arial', 'sans-serif';
+    color: #222222;
+    font-weight: 300;
+}
+
+h1,h2,h3,h4,p{
+    padding-bottom:15px;
+}
+
+h1{
+    font-size: 4.375rem;
+    line-height:5rem;
+}
+
+
+h2{
+    font-size: 2.5rem;
+    line-height:3rem;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+}
+
+h3{
+    font-size: 1.875rem;
+    line-height: 2.5rem;
+    margin-bottom:10px;
+}
+
+h4{
+    font-size: 1.688rem;
+    line-height: 2.1rem;
+}
+
+p{
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+/** Mobile View When window is smaller 767px  **/
+@media (max-width: 767px){
+    h1{
+        font-size: 3.125rem;
+        line-height:3.625rem;
+    }
+    h2{
+        font-size: 1.875rem;
+        line-height: 2.375rem;
+        text-transform: uppercase;
+        letter-spacing: .3rem;
+    }
+    h3{
+        font-size: 1.563rem;
+        line-height: 2.063rem;
+    }
+    h4{
+        font-size: 1.375rem;
+        line-height: 1.575rem;
+    }
+}
+
+@media (max-width: 640px){
+    .title{
+        h1{
+            font-size: 1.875rem;
+            line-height: 2.375rem;
+        }
+        h2{
+            font-size: 1.25rem;
+            line-height: 1.75rem;
         }
     }
+}

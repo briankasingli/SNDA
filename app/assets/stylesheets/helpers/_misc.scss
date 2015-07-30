@@ -12,7 +12,7 @@
      height:60px;
  }
  .spacer-secondary{
-     height:40px;
+    height:40px;
  }
  .spacer-teritary{
      height:30px;
@@ -59,7 +59,8 @@
     background: #f9f9f9 url("https://docracyprod-13cb.kxcdn.com/public/images/sign_pattern.png") no-repeat 0 0;
     background-size: contain;
 }
-//modal
+
+//modal popup css
 .modal-content{
     width: 588px;
 }
@@ -99,7 +100,7 @@
     font-weight: 600;
 }
 
-//admin list
+//admin page tables
 .dataTables_wrapper .dataTables_paginate .paginate_button.current{
     background: none;
     border: none;

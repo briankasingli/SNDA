@@ -1,3 +1,14 @@
+//by passing some bootstrap css styles
+a, a:active{
+  color: #333 !important;
+  font-weight: 350 !important;
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+//creating own cta buttons
 .button-green, a.edit-nda-btn {
   color: #fff !important;
   text-decoration: none !important;
@@ -55,14 +66,5 @@
   .btn-default.sign{
     position: relative;
     top: -3px;
-  }
-}
-
-a, a:active{
-  color: #333 !important;
-  font-weight: 350 !important;
-  text-decoration: none;
-  &:hover{
-    text-decoration: underline;
   }
 }
