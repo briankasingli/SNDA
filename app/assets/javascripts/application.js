@@ -4,8 +4,8 @@
 //= require_tree .
 
 $(function() {
-
-init();
+	"use strict";
+	init();
 
 	function init(){
 		//start w/ step one
@@ -82,7 +82,7 @@ init();
 	        full_name: full_name
 	      }
 	    },
-	    success: function(data) {
+	    success: function() {
 	      stepThree();
 	    },
 	    error: function() {

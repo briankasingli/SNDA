@@ -1,4 +1,5 @@
 $(function() {
+	"use strict";
 	//datatables settings
 	$('#signed_documents').dataTable( {
 	  responsive: true,

@@ -1,4 +1,5 @@
 $(function() {
+	"use strict";
 
 	//update NDA button
 	$('.update-nda').on('click', function(e){
@@ -21,7 +22,7 @@ $(function() {
 	      }
 	    },
 		  dataType: "json",
-		  success: function(data) {
+		  success: function() {
 		    console.log('success');
 		  },
 		  error: function() {
@@ -45,7 +46,7 @@ $(function() {
 		  url: "/signed_documents/" + sid,
 		  method: "DELETE",
 		  dataType: "json",
-		  success: function(data) {
+		  success: function() {
 		    console.log('success');
 		  },
 		  error: function() {
