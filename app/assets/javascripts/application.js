@@ -22,7 +22,11 @@ $(function() {
 
 	  //step 1, clicking on enter
 		$('.continue-btn').on('click', function(e){
-			e.preventDefault();		
+			e.preventDefault();
+			if ($('input[name="full-name"]').val().match(/script/)){
+				alert('Your trying to inject javascript');
+				return false;
+			}
 			stepTwo();
 			$("p").each(function() {
 		    var text = $(this).text();

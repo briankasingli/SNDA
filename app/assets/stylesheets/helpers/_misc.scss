@@ -52,7 +52,7 @@
     width:1500px;
 }
  
-@media (max-width: 481px){
+@media (max-width: 479px){
     .modal-footer{
         text-align: left !important;
     }        
@@ -136,5 +136,17 @@ table.dataTable {
         &:hover{
             background: #e7e7e7;
         }
+    }
+}
+.back-btn{
+    padding: 5px 20px;
+    background: #EEF3F4;
+    border-radius: 3px;
+    border: 1px solid #aaa;
+    display: inline-block;
+    margin-top: 20px;
+    &:hover{
+        text-decoration: none;
+        background: #D9D9D9;
     }
 }
