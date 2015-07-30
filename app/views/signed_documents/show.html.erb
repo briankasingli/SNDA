@@ -7,14 +7,7 @@
       	<div class="nda">
 	    	<%= @signed_document.nda.html_safe %>
 	    	<%= javascript_tag do %>
-				  $(function() {
-						"use strict";
-					  var sig = "<%= @signed_document.signature.html_safe %>";
-						//regenerate signature if its the show page
-						if (window.location.pathname.match(/signed_documents/)) {
-							$('.sigPad').signaturePad({displayOnly:true}).regenerate(sig);
-						}
-					});
+				  var sig = <%= @signed_document.signature.html_safe %>
 				<% end %>
 	    	<div class="sigPad signed">
 			    <div class="sigWrapper">
