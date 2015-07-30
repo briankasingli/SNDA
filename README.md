@@ -1,10 +1,13 @@
 Non-Disclosure Agreement, Rails App
 
 Stack:
-- Rails
-- VelocityJS
-- TableJS
-- Signature_PadJS
-- JQUERY
-- AJAX
-- more to come...
+- Ruby on Rails (API , ERB) 
+- POSTGRESQL 
+- JQUERY / AJAX 
+- DataTablesJS 
+- Signature_PadJS 
+- VelocityJS 
+- Bootstrap, SASS 
+- AwsomeFonts 
+- (HTMLTOPDF) soon to come...
+- Active Mailer
