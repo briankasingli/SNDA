@@ -51,6 +51,13 @@
 .sigPad{
     width:1500px;
 }
+ 
+@media (max-width: 481px){
+    .modal-footer{
+        text-align: left !important;
+    }        
+}
+
 .signature{
     border: 1px solid #ccc;
     -webkit-border-radius: 3px;
