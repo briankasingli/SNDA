@@ -34,7 +34,7 @@ $(function() {
 	//delete button
 	$('.delete-btn').on('click', function(){
 		var action = confirm('Are you sure you want to delete this signed document entry?');
-		if (action === true){
+		if (action){
 			$(this).closest('tr').velocity("fadeOut", { duration: 500 });
 			deleteSignaturedNDA($(this).data('sid'));
 		}
