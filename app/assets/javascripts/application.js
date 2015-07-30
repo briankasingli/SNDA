@@ -5,9 +5,9 @@
 
 $(function() {
 	"use strict";
-	startProgram();
+	init();
 
-	function startProgram(){
+	function init(){
 		//start w/ step one
 		stepOne();
 
