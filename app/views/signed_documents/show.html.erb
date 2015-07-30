@@ -1,24 +1,23 @@
 <div class="container home-container">
   <div class="row">
     <div class="col-sm-offset-2 col-sm-8">
-    		<div class="spacers">
-	    	<h1 class="text-align-center"><%= @signed_document.full_name %></h1>
-	    	<div class="document">
-      	<div class="nda">
-	    	<%= @signed_document.nda.html_safe %>
-	    	<%= javascript_tag do %>
-				  var sig = <%= @signed_document.signature.html_safe %>
-				<% end %>
-	    	<div class="sigPad signed">
-			    <div class="sigWrapper">
-			      <div class="typed">Sir John A. Macdonald</div>
-			      <canvas class="pad" width="555"></canvas>
-			    </div>
-			    <% Time.now.strftime("%Y-%m-%d") %>
-			    <p><%= @signed_document.created_at %></p>
-			  </div>
-			  </div>
-			  </div>
-    </div>
-  </div>
+	  	<h1 class="text-align-center"><%= @signed_document.full_name %></h1>
+	  	<div class="document">
+	    	<div class="nda">
+		    	<%= @signed_document.nda.html_safe %>
+		    	<%= javascript_tag do %>
+					  var sig = <%= @signed_document.signature.html_safe %>
+					<% end %>
+		    	<div class="sigPad signed">
+				    <div class="sigWrapper">
+				      <div class="typed">Sir John A. Macdonald</div>
+				      <canvas class="pad" width="555"></canvas>
+				    </div>
+				    <% Time.now.strftime("%Y-%m-%d") %>
+				    <p><%= @signed_document.created_at %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

@@ -1,5 +1,4 @@
-<div class="edit-nda">
-  <a class="edit-nda-btn" href="#" data-toggle="modal" data-target="#editNdaPop">Edit NDA</a></div>
+<div class="edit-nda"> <a class="edit-nda-btn" href="#" data-toggle="modal" data-target="#editNdaPop">Edit NDA</a></div>
 <div class="container home-container">
   <div class="row">
     <div class="col-sm-offset-2 col-sm-8">
@@ -28,11 +27,13 @@
                     <a target="_blank" href="/signed_documents/<%= signed_nda.id %>">
                       <%= signed_nda.full_name %>
                     </a>
+
                   </td>
                   <td>
                     <%= signed_nda.created_at %>
                   </td>
-                  <td class="nda-action"><a target="_blank" href="/signed_documents/<%= signed_nda.id %>">View</a> | <a class="delete-btn" data-sid="<%= signed_nda.id %>" href="#">Delete</a></td>
+                  <td class="nda-action"><a target="_blank" href="/signed_documents/<%= signed_nda.id %>">View</a> | <a class="delete-btn" data-sid="<%= signed_nda.id %>" href="#">Delete</a>
+                  </td>
                 </tr>
                 <% end %>
             </tbody>
@@ -42,23 +43,24 @@
     </div>
   </div>
 </div>
+<!-- Modal -->
 <div class="modal fade" id="editNdaPop" tabindex="-1" role="dialog" aria-labelledby="editNdaPopLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content editnda">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+        </button>
         <h4 class="modal-title">Edit This NDA</h4>
+
       </div>
       <div class="modal-body">
         <%= form_for @nda do |f| %>
           <input class="nda_id" type="hidden" value="<%= @nda.id %>">
-
           <%= f.text_area(:nda)%>
           <div class="text-align-center margin-top-10">
-            <%= f.submit 'Update NDA', :class => 'update-nda button-green'  %>
+            <%= f.submit 'Update NDA', :class=>'update-nda button-green' %>
           </div>
         <% end %>
-        </div>
       </div>
     </div>
   </div>
