@@ -1,3 +1,4 @@
+<%= link_to "Log out", logout_path, method: :delete, class: 'logout-btn' %>
 <div class="edit-nda"> <a class="edit-nda-btn" href="#" data-toggle="modal" data-target="#editNdaPop">Edit NDA</a></div>
 <div class="container home-container">
   <div class="row">
@@ -6,39 +7,39 @@
         <div class="spacer-primary"></div>
         <div class="spacer-primary"></div>
         <div class="spacer-primary"></div>
-        <h1 class="text-align-center">Admin Panel</h1>
-        <div id="admin-panel">
-          <table id="signed_documents">
-            <thead>
+      </div>
+      <h1 class="text-align-center">Admin Panel</h1>
+      <div id="admin-panel">
+        <table id="signed_documents">
+          <thead>
+            <tr>
+              <th>sid</th>
+              <th>Full Name</th>
+              <th>Signed Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @signed_ndas.each do |signed_nda| %>
               <tr>
-                <th>sid</th>
-                <th>Full Name</th>
-                <th>Signed Date</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @signed_ndas.each do |signed_nda| %>
-                <tr>
-                  <td class="nda-id" align="center">
-                    <%= signed_nda.id %>
-                  </td>
-                  <td>
-                    <a target="_blank" href="/signed_documents/<%= signed_nda.id %>">
-                      <%= signed_nda.full_name %>
-                    </a>
+                <td class="nda-id" align="center">
+                  <%= signed_nda.id %>
+                </td>
+                <td>
+                  <a target="_blank" href="/signed_documents/<%= signed_nda.id %>">
+                    <%= signed_nda.full_name %>
+                  </a>
 
-                  </td>
-                  <td>
-                    <%= signed_nda.created_at %>
-                  </td>
-                  <td class="nda-action"><a target="_blank" href="/signed_documents/<%= signed_nda.id %>">View</a> | <a class="delete-btn" data-sid="<%= signed_nda.id %>" href="#">Delete</a>
-                  </td>
-                </tr>
-                <% end %>
-            </tbody>
-          </table>
-        </div>
+                </td>
+                <td>
+                  <%= signed_nda.created_at %>
+                </td>
+                <td class="nda-action"><a target="_blank" href="/signed_documents/<%= signed_nda.id %>">View</a> | <a class="delete-btn" data-sid="<%= signed_nda.id %>" href="#">Delete</a>
+                </td>
+              </tr>
+              <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

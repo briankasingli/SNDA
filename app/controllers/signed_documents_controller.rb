@@ -1,6 +1,7 @@
 class SignedDocumentsController < ApplicationController
 
   def show
+    authenticate_user!
     @signed_document = SignedDocument.find(params[:id])
   end
 

@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-offset-2 col-sm-8">
+  	<div class="spacers">
+      <div class="spacer-primary"></div>
+      <div class="spacer-primary"></div>
+      <div class="spacer-primary"></div>
+    </div>
+  	<h1 class="text-align-center">Log in</h1>
+  	<div class="login-container">
+  	<%= render partial: "shared_partials/alerts" %>
+	    <%= form_for(:session, url: login_path) do |f| %>
+	      <%= f.email_field :email, class: 'form-control', placeholder: "Email Address" %>
+	      <p></p>
+	      <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+				<p></p>
+				<div class="text-align-center">
+	      	<%= f.submit "Log in", class: "button-green" %>
+	      </div>
+	    <% end %>
+    </div>
+  </div>
+</div>
