@@ -5,9 +5,6 @@
 	pdf.text("\n")
 end
 
-pigs = "#{Prawn::BASEDIR}/data/images/pigs.jpg" 
-
-
 data_url = @signed_document.signture_image
 png = Base64.decode64(data_url['data:image/png;base64,'.length .. -1])
 File.open('signature.png', 'wb') { |f| f.write(png) }

@@ -34,7 +34,7 @@
                 <td>
                   <%= signed_nda.created_at %>
                 </td>
-                <td class="nda-action"><a target="_blank" href="/signed_documents/<%= signed_nda.id %>">View</a> | <a target="_blank" href="/signed_documents/<%= signed_nda.id %>.pdf">Download</a> |<a class="delete-btn" data-sid="<%= signed_nda.id %>" href="#">Delete</a>
+                <td class="nda-action"><a target="_blank" href="/signed_documents/<%= signed_nda.id %>">View</a> | <a target="_blank" download="<%= signed_nda.full_name %>.pdf" href="/signed_documents/<%= signed_nda.id %>.pdf">Download</a> |<a class="delete-btn" data-sid="<%= signed_nda.id %>" href="#">Delete</a>
                 </td>
               </tr>
               <% end %>
