@@ -8,9 +8,9 @@ class SignedDocumentsController < ApplicationController
   def create
      respond_to do |format|
       @signed_document = SignedDocument.new(signed_document_params)
+      
       if @signed_document.save(signed_document_params)
         format.html { render json: @signed_document }
-        format.json { render json: @signed_document }
       else
         format.json { render json: @thing.errors.full_messages, status: :unprocessable_entity }
       end
@@ -31,6 +31,7 @@ class SignedDocumentsController < ApplicationController
         :nda_id,
         :nda, 
         :signature,
+        :signture_image,
         :full_name
         )
     end

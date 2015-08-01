@@ -32,7 +32,8 @@ $(function() {
 	}
 
 	//delete button
-	$('.delete-btn').on('click', function(){
+	$('.delete-btn').on('click', function(e){
+		e.preventDefault();
 		var action = confirm('Are you sure you want to delete this signed document entry?');
 		if (action){
 			$(this).closest('tr').velocity("fadeOut", { duration: 500 });

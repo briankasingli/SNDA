@@ -35,10 +35,13 @@ $(function() {
 		    $(this).text(text);
 			});
 			//init signature pad
-			$('.sigPad').signaturePad({drawOnly:true});
+			$('.sigPad').signaturePad({
+				drawOnly:true,
+				drawBezierCurves:true,
+				lineTop: 100,
+				lineColour : '#F6F6F6'
+			});
 		});
-
-
 		//submitting after signing
 		$( "form.sigPad" ).submit(function(e) {
 			e.preventDefault();
@@ -47,7 +50,11 @@ $(function() {
 	    var signature = $('input[name="output"]').val();
 	    var full_name = $('input[name="full-name"]').val();
 			if ($('input[name="output"]').val().length > 0){
-				postSignatureNDA(nda_id, nda, signature, full_name);
+				var canvas = document.getElementById('canvas');
+				var ctx = canvas.getContext("2d");
+				var signture_image =  canvas.toDataURL('image/png');
+				postSignatureNDA(nda_id, nda, signature, signture_image, full_name);
+				stepThree();
 			}else{
 				console.log('signature unsigned');
 			}
@@ -74,7 +81,7 @@ $(function() {
 	}
 
 	//ajax for posting nda
-	function postSignatureNDA(nda_id, nda, signature, full_name) {
+	function postSignatureNDA(nda_id, nda, signature, signture_image, full_name) {
 	  $.ajax({
 	    url: "/signed_documents",
 	    method: "POST",
@@ -82,12 +89,13 @@ $(function() {
 	      signed_document: {
 	        nda_id: nda_id,
 	        nda: nda,
+	        signture_image: signture_image,
 	        signature: signature,
 	        full_name: full_name
 	      }
 	    },
 	    success: function() {
-	      stepThree();
+	      //nothing will happen after success
 	    },
 	    error: function() {
 	      //there isnt going to be any errors
