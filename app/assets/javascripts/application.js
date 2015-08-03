@@ -28,7 +28,7 @@ $(function() {
 		    $(this).removeClass('vce');
 		    $('input.email-address').removeClass('vce');
 		    $(this).closest('form.form-home').find('.continue-btn').html('');
-		    if (($(this).val().match(/@/))) {
+		    if (($(this).val().match(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/))) {
 		      $(this).closest('.form-home').find('.verify-email-address').html('<input name="validate-email-address" class="validate-email-address" type="text" placeholder="Verify Email Address" maxlength="200" autocomplete="off" />');
 
 		      //validate email
