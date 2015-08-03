@@ -15,6 +15,7 @@
             <tr>
               <th>sid</th>
               <th>Full Name</th>
+              <th>Email Address</th>
               <th>Signed Date</th>
               <th>Actions</th>
             </tr>
@@ -30,6 +31,9 @@
                     <%= signed_nda.full_name %>
                   </a>
 
+                </td>
+                 <td>
+                 <%= signed_nda.email %>
                 </td>
                 <td>
                   <%= signed_nda.created_at %>
