@@ -2,6 +2,9 @@ Non-Disclosure Agreement, Rails App
 
 Stack:
 - Ruby on Rails (API , ERB) 
+- PrawnTo
+- RMagick
+- Active Mailer
 - POSTGRESQL 
 - JQUERY / AJAX 
 - DataTablesJS 
@@ -9,5 +12,3 @@ Stack:
 - VelocityJS 
 - Bootstrap, SASS 
 - AwsomeFonts 
-- (HTMLTOPDF) soon to come...
-- Active Mailer
