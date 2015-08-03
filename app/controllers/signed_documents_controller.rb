@@ -11,6 +11,7 @@ class SignedDocumentsController < ApplicationController
       
       if @signed_document.save(signed_document_params)
         format.html { render json: @signed_document }
+        SignerMailer.signed_nda(@signed_document).deliver
       else
         format.json { render json: @thing.errors.full_messages, status: :unprocessable_entity }
       end
