@@ -9,5 +9,6 @@ Stack:
 - VelocityJS 
 - Bootstrap, SASS 
 - AwsomeFonts 
-- (HTMLTOPDF) soon to come...
+- PrawnTo
+- RMagick
 - Active Mailer
