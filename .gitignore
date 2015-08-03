@@ -15,6 +15,6 @@
 /log/*
 !/log/.keep
 /tmp
-sink
-ship
-signature.png
+.sink
+.ship
+*signature.png
