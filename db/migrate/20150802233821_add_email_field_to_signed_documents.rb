@@ -1,0 +1,5 @@
+class AddEmailFieldToSignedDocuments < ActiveRecord::Migration
+  def change
+		add_column :signed_documents, :email, :string
+  end
+end

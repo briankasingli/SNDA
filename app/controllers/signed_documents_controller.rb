@@ -32,7 +32,8 @@ class SignedDocumentsController < ApplicationController
         :nda, 
         :signature,
         :signture_image,
-        :full_name
+        :full_name,
+        :email
         )
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150731200445) do
+ActiveRecord::Schema.define(version: 20150802233821) do
 
   create_table "ndas", force: :cascade do |t|
     t.integer  "user_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150731200445) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "signture_image"
+    t.string   "email"
   end
 
   add_index "signed_documents", ["nda_id"], name: "index_signed_documents_on_nda_id"

@@ -1,7 +1,7 @@
 <div class="container home-container">
   <div class="row">
     <div class="col-sm-offset-2 col-sm-8">
-    	<div class="enter-name">
+    	<div class="enter-name enter-email">
     		<div class="spacers">
   				<div class="spacer-primary"></div>
   	    	<div class="spacer-primary"></div>
@@ -14,8 +14,16 @@
 		    		<div class="continue-btn"></div>
 		    	</form>	
 	    	</div>
-    	</div>
-    	<div class="step2">
+        <div class="step2 text-align-center">
+          <h1 class="text-align-center">What is your email address?</h1>
+          <form class="form-home">
+            <input name="email-address" class="email-address" type="email" placeholder="ex. cathyw@gmail.com" maxlength="200" autocomplete="off" />
+            <div class="verify-email-address"></div>
+            <div class="continue-btn"></div>
+          </form> 
+        </div>
+      </div>
+    	<div class="step3">
         <a class="back-btn" href="/">Back</a>
         <h1>Non-Disclosure Agreement</h1>
         <div class="document">
@@ -54,7 +62,7 @@
           </div>
         </div>
       </div>
-      <div class="step3">
+      <div class="step4">
         <h1 class="text-align-center">Thank you for signing the document</h1>
         <div class="text-align-center"><a class="back-btn" href="/">Back to Home</a></div>
       </div>
