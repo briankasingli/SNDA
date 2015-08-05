@@ -9,7 +9,7 @@ $(function() {
 
 	function init(){
 		//start w/ step one
-		stepOne();
+		renderStepOne();
 
 		//step 1, entering full name
 	  $('form.form-home .full-name').on("keyup", function() {
@@ -23,11 +23,15 @@ $(function() {
 
 		//step 2, entering full name
 		$('form.form-home .email-address').on("keyup", function() {
+
+			//entering email
 		  $('input.email-address').on("keyup", function() {
 		    $('input.validate-email-address').val('');
 		    $(this).removeClass('vce');
 		    $('input.email-address').removeClass('vce');
 		    $(this).closest('form.form-home').find('.continue-btn').html('');
+
+		    //display validate email input
 		    if (($(this).val().match(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/))) {
 		      $(this).closest('.form-home').find('.verify-email-address').html('<input name="validate-email-address" class="validate-email-address" type="email" placeholder="Verify Email Address" maxlength="200" autocomplete="off" />');
 
@@ -51,39 +55,6 @@ $(function() {
 		    }
 		  });
 		});
-
-	  //Validations to continue to step 2
-		function continueStepTwo() {
-		  $('.continue').on('click', function(e) {
-		    e.preventDefault();
-		    if ($('input[name="full-name"]').val().match(/script/)) {
-		      alert('Your trying to inject javascript');
-		      return false;
-		    }
-		    stepTwo();
-		  });
-		}
-
-		//Validations to continue to step 2
-		function continueStepThree() {
-		  $('.continue').on('click', function(e) {
-		    e.preventDefault();
-		    $("p").each(function() {
-		      var text = $(this).text();
-		      var full_name = $('.step1 input').val().toLowerCase().capitalize();
-		      text = text.replace(/\{full_name\}/g, full_name);
-		      $(this).text(text);
-		    });
-		    //init signature pad
-		    $('.sigPad').signaturePad({
-		      drawOnly: true,
-		      drawBezierCurves: true,
-		      lineTop: 100,
-		      lineColour: '#F6F6F6'
-		    });
-		    stepThree();
-		  });
-		}
 		
 		//submitting after signing
 		$( "form.sigPad" ).submit(function(e) {
@@ -98,20 +69,53 @@ $(function() {
 				var ctx = canvas.getContext("2d");
 				var signture_image =  canvas.toDataURL('image/png');
 				postSignatureNDA(nda_id, nda, signature, signture_image, full_name, email);
-				stepFour();
 			}else{
 				console.log('signature unsigned');
 			}
 		});
 	}
 
-	function stepOne(){
+	//Validations to continue to step 2
+	function continueStepTwo() {
+	  $('.continue').on('click', function(e) {
+	    e.preventDefault();
+	    if ($('input[name="full-name"]').val().match(/script/)) {
+	      alert('Your trying to inject javascript');
+	      return false;
+	    }
+	    renderStepTwo();
+	  });
+	}
+
+	//Validations to continue to step 3
+	function continueStepThree() {
+	  $('.continue').on('click', function(e) {
+	    e.preventDefault();
+	    $("p").each(function() {
+	      var text = $(this).text();
+	      var full_name = $('.step1 input').val().toLowerCase().capitalize();
+	      text = text.replace(/\{full_name\}/g, full_name);
+	      $(this).text(text);
+	    });
+	    //init signature pad
+	    $('.sigPad').signaturePad({
+	      drawOnly: true,
+	      drawBezierCurves: true,
+	      lineTop: 100,
+	      lineColour: '#F6F6F6'
+	    });
+	    renderStepThree();
+	  });
+	}
+
+	//rendering steps
+	function renderStepOne(){
 		$('.step2').hide();
 		$('.step3').hide();
 		$('.step4').hide();
 	}
 
-	function stepTwo(){
+	function renderStepTwo(){
 		$('.step1').hide();
 		$('.step2').show();
 		$('.step3').hide();
@@ -119,7 +123,7 @@ $(function() {
 		$('.spacers').show();
 	}
 
-	function stepThree(){
+	function renderStepThree(){
 		$('.step1').hide();
 		$('.step2').hide();
 		$('.step3').show();
@@ -127,7 +131,7 @@ $(function() {
 		$('.spacers').hide();
 	}
 
-	function stepFour(){
+	function renderStepFour(){
 		$('.step1').hide();
 		$('.step2').hide();
 		$('.step3').hide();
@@ -152,7 +156,7 @@ $(function() {
 	      }
 	    },
 	    success: function() {
-	      //nothing will happen after success
+	      renderStepFour();
 	    },
 	    error: function() {
 	      //there isnt going to be any errors

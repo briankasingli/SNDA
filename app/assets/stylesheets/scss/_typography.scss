@@ -1,0 +1,31 @@
+html{
+    font-size: $font-default-size;
+}
+
+body h1,h2,h3,h4,h5,h6,p,ul,ol,li,div,a, span, form, input, label, textarea, td, tr{
+    font-family: $font-default-family;
+    color: $font-default-color;
+    font-weight: $font-default-weight;
+}
+
+h1,p{
+    padding-bottom: $font-default-padding;
+}
+
+h1{
+    font-size: $font-h1-size;
+    line-height: $font-h1-line-height;
+}
+
+p{
+    font-size: $font-p-size;
+    line-height: $font-p-line-height;
+}
+
+/** Mobile View When window is smaller 767px  **/
+@media (max-width: 767px){
+    h1{
+        font-size: $font-h1-mobile-size;
+        line-height: $font-h1-mobile-line-height;
+    }
+}
