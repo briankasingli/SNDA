@@ -155,6 +155,9 @@ $(function() {
 	        email: email
 	      }
 	    },
+	    beforeSend: function() {
+				processingView();
+			},
 	    success: function() {
 	      renderStepFour();
 	    },
@@ -162,5 +165,11 @@ $(function() {
 	      //there isnt going to be any errors
 	    }
 	  });
+	}
+	//while AJAX is doing its magic, this view will be loaded
+	function processingView(){
+		$('#canvas, .sigNav, .sign-document-btn').hide();
+		$('h4.modal-title').text('Your signed Document is Being Processed').addClass('text-align-center');
+		$('.sign-content').html('<div class="text-align-center"><img src="assets/helpers/loader.gif" alt="loader" height="50" style="padding-top:15px;" /></div>');
 	}
 });
